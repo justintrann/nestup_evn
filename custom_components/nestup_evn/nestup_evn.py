@@ -55,9 +55,9 @@ class EVNAPI:
         """Construct EVNAPI wrapper."""
 
         self._session = (
-            async_create_clientsession(hass)
+            async_create_clientsession(hass,verify_ssl=False)
             if is_new_session
-            else async_get_clientsession(hass)
+            else async_get_clientsession(hass,verify_ssl=False)
         )
 
         self._evn_area = {}
